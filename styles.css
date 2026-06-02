@@ -1,5 +1,6 @@
 /*highlighter style*/
 /*lowlight*/
+
 .highlightr-lowlight mark,
 .highlightr-lowlight span.cm-highlight,
 .highlightr-lowlight .markdown-preview-view mark {
@@ -10,6 +11,24 @@
     rgba(255, 255, 255, 0) 40%,
     var(--lowlight-background) 40%
   ) !important;
+}
+
+.callout mark,
+.callout span.cm-highlight,
+.callout .markdown-preview-view mark {
+  /* Force the top background to be a solid color so yellow can't bleed through */
+  --lowlight-background: var(--background-primary);
+  
+  /* This prevents the solid background from looking like a white box */
+  mix-blend-mode: multiply; 
+}
+
+/* Dark mode adjustment */
+.theme-dark .callout mark,
+.theme-dark .callout span.cm-highlight,
+.theme-dark .callout .markdown-preview-view mark {
+  --lowlight-background: var(--background-primary);
+  mix-blend-mode: screen;
 }
 
 .highlightr-lowlight .workspace-split.mod-left-split mark,
